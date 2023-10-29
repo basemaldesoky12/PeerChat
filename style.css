@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#videos{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+    overflow: auto;
+    position: relative;
+}
+.video-player{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#user-2{
+    display: none;
+}
+.smallFrame{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 170px;
+    width: 300px;
+    border-radius: 5px;
+    border: 2px solid #b366f9;
+    -webkit-box-shadow : 3px 3px 15px -1px rgba(0,0,0,0.77);
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+    z-index: 999;
+}
+.control-container{
+    background-color: rgb(179, 102, 249,.9);
+    padding: 20px;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.control-container img{
+    height: 30px;
+    width: 30px;
+}
+#leave-btn{
+    background-color: rgb(255, 80, 80);
+}
+#controls{
+    position: fixed;
+    bottom: 20px;
+    left: 35%;
+    transform: translate(-50%);
+    display: flex;
+    gap: 1em;
+}
+
+#chat-section {
+    background-color: #363739;
+    display: flex;
+    /* flex-direction: column; Stack chat messages above the form */
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+}
+
+#chat-messages {
+    list-style-type: none; /* Remove bullet points */
+    overflow-y: auto; /* Add vertical scroll for the chat messages */
+    max-height: 80vh; /* Set a maximum height for the chat messages list */
+}
+
+#chat-messages li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #464748;
+    border-radius: 5px;
+    color: white;
+}
+
+#chat-messages li:nth-child(odd) {
+    background-color: #363739; /* Alternate background color for messages */
+}
+
+
+#chatForm {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#chat-message-input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#chatForm input[type="submit"] {
+    background-color: #b366f9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+     .smallFrame{
+        height: 80px;
+        width: 120px;
+     }
+     .control-container img{
+        width: 15px;
+        height: 15px;
+     }
+     #controls{
+        bottom: 30%;
+     }
+     #videos{
+        grid-template-columns: 1fr;
+     }
+     #chat-section{
+        grid-column: span 2;
+     }
+}
+@media screen and (max-width:760px) {
+    .smallFrame{
+       height: 100px;
+       width: 150px;
+    }
+    .control-container img{
+       width: 20px;
+       height: 20px;
+    }
+    #controls{
+        bottom: 30%;
+     }
+     #videos{
+        grid-template-columns: 1fr;
+     }
+     #chat-section{
+        grid-column: span 2;
+     }
+}
+/* #chat-section{
+    display: block;
+    width: 25%;
+
+} */

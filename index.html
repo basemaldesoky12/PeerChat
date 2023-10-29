@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerChat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="videos">
+        <video class="video-player" id="user-1" autoplay playsinline></video>
+        <video class="video-player" id="user-2" autoplay playsinline></video>
+        <div id="chat-section">
+            <ul id="chat-messages"></ul>
+            <form id="chatForm">
+              <input type="text" name="message" id="chat-message-input">
+              <input type="submit" value="Send">
+            </form>
+        </div>        
+        <div id="controls">
+            <div class="control-container" id="camera-btn">
+                <img src="icons/video-camera.png" alt="">
+            </div>
+            <div class="control-container" id="mic-btn">
+                <img src="icons/voice-recorder.png"alt="">
+            </div>
+            <a href="lobby.html">
+                <div class="control-container" id="leave-btn">
+                    <img src="icons/phone-call.png" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    
+</body>
+<script src="agora-rtm-sdk-1.5.1.js"></script>
+<script type="module" src="main.js"></script>
+</html>
