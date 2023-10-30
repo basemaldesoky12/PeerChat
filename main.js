@@ -103,6 +103,24 @@ let init = async () => {
 
     localStream = await navigator.mediaDevices.getUserMedia(constraints)
     document.getElementById('user-1').srcObject = localStream
+    localStream.getTracks().forEach((track) => {
+        peerConnection.addTrack(track, localStream);
+      });
+    
+      peerConnection.ontrack = (event) => {
+        event.streams[0].getTracks().forEach((track) => {
+          remoteStream.addTrack(track);
+        });
+      };
+    
+      peerConnection.onicecandidate = async (event) => {
+        if (event.candidate) {
+          client.sendMessageToPeer(
+            { text: JSON.stringify({ type: "candidate", candidate: event.candidate }) },
+            MemberId
+          );
+        }
+      };
     document.getElementById('chatForm').addEventListener('submit', async (event) => {
     event.preventDefault()
 
